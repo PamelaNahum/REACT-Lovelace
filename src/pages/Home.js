@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { FOCUSABLE_SELECTOR } from "@testing-library/user-event/dist/utils";
 import React from "react";
 import { TableComponent, TextComponent, FormularioAuto, FormularioUsuario, TablaAutos, TablaUsuarios } from "../components";
@@ -24,18 +23,6 @@ const HomePage = () => {
                 </div>
             </div>
         </div>
-=======
-import React from "react";
-import { TableComponent, TextComponent } from "../components";
-
-const HomePage = () => {
-    return(
-        <div>
-            <TextComponent/>
-            <TableComponent/>
-        </div>
-
->>>>>>> 982dcb7247a68b16a3d9678d0b3ab821df1aeb9f
     )
 }
 

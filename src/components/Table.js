@@ -3,7 +3,6 @@ import React from "react";
 const TableComponent = () => {
     return (
         <table class="table">
-<<<<<<< HEAD
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -34,37 +33,5 @@ const TableComponent = () => {
         </table>
     );
 };
-=======
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-    );
-  };
->>>>>>> 982dcb7247a68b16a3d9678d0b3ab821df1aeb9f
 
 export default TableComponent;
