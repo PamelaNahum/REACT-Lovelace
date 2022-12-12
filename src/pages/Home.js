@@ -1,23 +1,20 @@
-import { FOCUSABLE_SELECTOR } from "@testing-library/user-event/dist/utils";
-import React from "react";
-import { TableComponent, TextComponent, FormularioAuto, FormularioUsuario, TablaAutos, TablaUsuarios } from "../components";
+import React, { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import {  FormularioUsuario, TablaUsuarios, BotonFormulario } from "../components";
 
 const HomePage = () => {
+    const navigate = useNavigate();
+    const handleOnClick = useCallback(()=> navigate("/Auto", {}, [navigate]))
     return (
         <div class="container mt-3">
             <div class="row">
                 <div class="col">
-                    <FormularioAuto />
-                </div>
-                <div class="col">
                     <FormularioUsuario />
                 </div>
             </div>
+            <BotonFormulario infoBoton={'Ir a autos'} handleOnClick={handleOnClick}/>
             <hr />
             <div class="row">
-                <div class="col">
-                    <TablaAutos />
-                </div>
                 <div class="col">
                     <TablaUsuarios />
                 </div>

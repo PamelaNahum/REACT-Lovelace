@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage } from "./pages";
+import { AutoPage, HomePage } from "./pages";
 
 const App = () => {
     return (
@@ -10,6 +10,7 @@ const App = () => {
             <Routes>
                 {/* Especificamos cada ruta */}
                 <Route path="/" element={<HomePage />} />
+                <Route path="/Auto" element={<AutoPage />} />
             </Routes>
         </BrowserRouter>
     )

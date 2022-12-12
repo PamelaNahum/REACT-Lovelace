@@ -22,7 +22,7 @@ const FormularioUsuario = () => {
                     <label class="form-label" for="id">Correo</label>
                     <input class="form-control" placeholder="juanperez@correo.cl" type="email" id="Correo" />
                 </div>
-                <BotonFormulario />
+                <BotonFormulario infoBoton={'Agregar usuarios'}/>
                 <br />
             </form>
         </div>

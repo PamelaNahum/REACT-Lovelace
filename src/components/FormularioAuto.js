@@ -29,7 +29,7 @@ const FormularioAuto = () => {
                         <option value="Blanco" class="text-white">Blanco</option>
                     </select>
                 </div>
-                <BotonFormulario/>
+                <BotonFormulario infoBoton={'Agregar auto'}/>
                 <br/>
             </form>
             

@@ -1,9 +1,15 @@
 import React from "react";
-
-const BotonFormulario = () => {
+//componente dinámico
+const BotonFormulario = ({infoBoton, handleOnClick}) => {
     return (
         <div>
-        <button type="button" class="btn btn-primary">Enviar</button>
+        <button 
+        type="button" 
+        class="btn btn-primary"
+        onClick={()=>{
+            handleOnClick();
+        }}
+        >{infoBoton}</button>
         </div>
     )
 }
