@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import BotonFormulario from "./BotonFormulario";
 
-const TablaUsuarios = ({ usuarios, deleteUser }) => {
+const TablaUsuarios = ({ usuarios, deleteUser, setUsuarioEditado }) => {
     
   return (
     <div class="card container mb-2">
@@ -35,6 +35,15 @@ const TablaUsuarios = ({ usuarios, deleteUser }) => {
                   }}
                 >
                  Eliminar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-warning"
+                  onClick={() => {
+                    setUsuarioEditado(usuario)
+                  }}
+                >
+                 Editar
                 </button>
               </td>
             </tr>

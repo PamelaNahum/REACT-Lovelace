@@ -34,43 +34,54 @@ const usuario2 = {
   rut: "17456329-9",
 };
 
-
 const HomePage = () => {
   const navigate = useNavigate();
   const handleOnClick = useCallback(() => navigate("/Auto", {}, [navigate]));
   //en este momento state vale lo mismo que usuario 1
   //genera una funcion setteadora que me va a permitir cambiar los datos se usuario 1 sin afectarlo directamente(setState)
   const [user, setUser] = useState(usuario1);
+  const [usuarioEditado, setUsuarioEditado] = useState(null);
 
-  const userDelete =(rutUsuario)=>{
+  const userDelete = (rutUsuario) => {
     //esta funcion filtra mi lista de usuarios
-    const changeUser = user.filter(usuario => usuario.rut != rutUsuario);
+    const changeUser = user.filter((usuario) => usuario.rut != rutUsuario);
     //al momento de ocupar la funcion setState, yo le voy a cambiar el valor TEMPORAL a mis usuarios
     setUser(changeUser);
-  }
+  };
 
-  const userAdd =(usuario)=>{
-    const addUsuario =[
-        //mantenme los datos que tengo en user y agregame lo que yo te entrego aqui (usuario)
-        ...user, usuario
-    ]
+  const userAdd = (usuario) => {
+    const addUsuario = [
+      //mantenme los datos que tengo en user y agregame lo que yo te entrego aqui (usuario)
+      ...user,
+      usuario,
+    ];
     //luego actualizamos (o setteamos) el state
     setUser(addUsuario);
+  };
 
+  const userEdit =(usuarioEditado)=>{
+    const editUser = user.map(usuario => (usuario.rut === usuarioEditado.rut ? usuarioEditado : usuario))
+
+    setUser(editUser);
   }
 
   return (
     <div class="container mt-3">
       <div class="row">
         <div class="col">
-          <FormularioUsuario userAdd={userAdd} />
+          <FormularioUsuario
+            userAdd={userAdd}
+            usuarioEditado={usuarioEditado}
+            setUsuarioEditado={setUsuarioEditado}
+            userEdit={userEdit}
+          />
         </div>
       </div>
       <BotonFormulario infoBoton={"Ir a autos"} handleOnClick={handleOnClick} />
       <hr />
       <div class="row">
         <div class="col">
-          <TablaUsuarios usuarios={user} deleteUser={userDelete} />
+          <TablaUsuarios usuarios={user} deleteUser={userDelete} setUsuarioEditado={setUsuarioEditado} />
         </div>
       </div>
     </div>
