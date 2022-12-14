@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BotonFormulario from "./BotonFormulario";
 
 const TablaUsuarios = ({ usuarios, deleteUser }) => {
+    
   return (
     <div class="card container mb-2">
       <h2>Tabla Usuarios</h2>

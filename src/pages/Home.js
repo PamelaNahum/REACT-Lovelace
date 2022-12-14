@@ -34,6 +34,7 @@ const usuario2 = {
   rut: "17456329-9",
 };
 
+
 const HomePage = () => {
   const navigate = useNavigate();
   const handleOnClick = useCallback(() => navigate("/Auto", {}, [navigate]));
@@ -48,11 +49,21 @@ const HomePage = () => {
     setUser(changeUser);
   }
 
+  const userAdd =(usuario)=>{
+    const addUsuario =[
+        //mantenme los datos que tengo en user y agregame lo que yo te entrego aqui (usuario)
+        ...user, usuario
+    ]
+    //luego actualizamos (o setteamos) el state
+    setUser(addUsuario);
+
+  }
+
   return (
     <div class="container mt-3">
       <div class="row">
         <div class="col">
-          <FormularioUsuario />
+          <FormularioUsuario userAdd={userAdd} />
         </div>
       </div>
       <BotonFormulario infoBoton={"Ir a autos"} handleOnClick={handleOnClick} />
