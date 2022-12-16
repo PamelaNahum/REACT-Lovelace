@@ -31,7 +31,7 @@ const TablaUsuarios = ({ usuarios, deleteUser, setUsuarioEditado }) => {
                   type="button"
                   class="btn btn-danger"
                   onClick={() => {
-                    deleteUser(usuario.rut);
+                    deleteUser(usuario.id);
                   }}
                 >
                  Eliminar

@@ -6,7 +6,7 @@ import {
   BotonFormulario,
 } from "../components";
 
-import { getAllUsers, addUser } from "../services/User";
+import { getAllUsers, addUser, editUser, deleteUser } from "../services/User";
 
 const usuario1 = [
   {
@@ -60,15 +60,25 @@ const HomePage = () => {
     getUsers();
   }
 
- 
+  const userEdit = async(usuarioEditado) =>{
+    const usuarioBD = await editUser(usuarioEditado);
+    getUsers();
+  }
 
-  const userDelete = (rutUsuario) => {
+  const userDelete = async(idUsuario)=>{
+    const usuarioBD = await deleteUser(idUsuario);
+    getUsers();
+  }
+
+ /* Se comentan estas funciones ya que ahora ocuparemos unas que apunten a nuestras apis */
+
+  /* const userDelete = (rutUsuario) => {
     //esta funcion filtra mi lista de usuarios
     const changeUser = user.filter((usuario) => usuario.rut != rutUsuario);
     //al momento de ocupar la funcion setState, yo le voy a cambiar el valor TEMPORAL a mis usuarios
     setUser(changeUser);
-  };
-/* Se comenta esta funcion ya que ahora ocuparemos una que apunte a nuestras apis */
+  }; */
+
   /* const userAdd = (usuario) => {
     const addUsuario = [
       //mantenme los datos que tengo en user y agregame lo que yo te entrego aqui (usuario)
@@ -79,11 +89,11 @@ const HomePage = () => {
     setUser(addUsuario);
   }; */
 
-  const userEdit =(usuarioEditado)=>{
+  /* const userEdit =(usuarioEditado)=>{
     const editUser = user.map(usuario => (usuario.rut === usuarioEditado.rut ? usuarioEditado : usuario))
 
     setUser(editUser);
-  }
+  } */
 
   return (
     <div class="container mt-3">
