@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import BotonFormulario from "./BotonFormulario";
 
 const initialUsuario = {
-  nombre: "",
-  apellido: "",
+  name: "",
+  lastName: "",
   correo: "",
-  rut: "",
+  id: "",
 };
 
 const FormularioUsuario = ({ userAdd, usuarioEditado, setUsuarioEditado, userEdit }) => {
   const [usuario, setUsuario] = useState(initialUsuario);
-  const { nombre, apellido, correo, rut } = usuario;
+  const { name, lastName, correo, id } = usuario;
   //el hook useEffect siempre esta pendiente de si la variable que tiene dentro de
   //sus corchetes cambia el deberá hacer todo loq ue tiene en su funcion dentro
   //CONSIDERACIÓN es que useEffect siempre corre al menos 1 vez cuando la página carga por primera vez
@@ -19,10 +19,10 @@ const FormularioUsuario = ({ userAdd, usuarioEditado, setUsuarioEditado, userEdi
       setUsuario(usuarioEditado);
     } else {
       setUsuario({
-        nombre: "",
-        apellido: "",
+        name: "",
+        lastName: "",
         correo: "",
-        rut: "",
+        id: "",
       });
     }
   }, [usuarioEditado]);
@@ -53,18 +53,18 @@ const FormularioUsuario = ({ userAdd, usuarioEditado, setUsuarioEditado, userEdi
 
         <div class="mb-3">
           <label class="form-label" for="id">
-            Rut
+            ID
           </label>
           <input
             class="form-control"
-            placeholder="11111111-1"
             type="text"
             id="id"
-            //para que mi formulario sea capaz de crear un usuario debemos agregarle a los inpur
+            //para que mi formulario sea capaz de crear un usuario debemos agregarle a los input
             //lo siguente
-            name="rut"
-            value={rut}
+            name="id"
+            value={id}
             onChange={handleInputChange}
+            disabled
           />
         </div>
         <div class="mb-3">
@@ -76,8 +76,8 @@ const FormularioUsuario = ({ userAdd, usuarioEditado, setUsuarioEditado, userEdi
             placeholder="Juan"
             type="text"
             id="Nombre"
-            name="nombre"
-            value={nombre}
+            name="name"
+            value={name}
             onChange={handleInputChange}
           />
         </div>
@@ -90,8 +90,8 @@ const FormularioUsuario = ({ userAdd, usuarioEditado, setUsuarioEditado, userEdi
             placeholder="Perez"
             type="text"
             id="Apellido"
-            name="apellido"
-            value={apellido}
+            name="lastName"
+            value={lastName}
             onChange={handleInputChange}
           />
         </div>

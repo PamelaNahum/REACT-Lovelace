@@ -1,10 +1,12 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   FormularioUsuario,
   TablaUsuarios,
   BotonFormulario,
 } from "../components";
+
+import { getAllUsers, addUser } from "../services/User";
 
 const usuario1 = [
   {
@@ -42,14 +44,32 @@ const HomePage = () => {
   const [user, setUser] = useState(usuario1);
   const [usuarioEditado, setUsuarioEditado] = useState(null);
 
+  useEffect(()=>{
+    getUsers();
+  },[])
+
+  const getUsers = async()=>{
+    const usuariosBD = await getAllUsers();
+    setUser(usuariosBD);
+  }
+
+  const userAdd = async(usuarioAgregado) =>{
+    //en esta linea agregamos un usuario a la base de datos
+    const usuarioBD = await addUser(usuarioAgregado);
+    //aqui haremos que la tabla de actualice
+    getUsers();
+  }
+
+ 
+
   const userDelete = (rutUsuario) => {
     //esta funcion filtra mi lista de usuarios
     const changeUser = user.filter((usuario) => usuario.rut != rutUsuario);
     //al momento de ocupar la funcion setState, yo le voy a cambiar el valor TEMPORAL a mis usuarios
     setUser(changeUser);
   };
-
-  const userAdd = (usuario) => {
+/* Se comenta esta funcion ya que ahora ocuparemos una que apunte a nuestras apis */
+  /* const userAdd = (usuario) => {
     const addUsuario = [
       //mantenme los datos que tengo en user y agregame lo que yo te entrego aqui (usuario)
       ...user,
@@ -57,7 +77,7 @@ const HomePage = () => {
     ];
     //luego actualizamos (o setteamos) el state
     setUser(addUsuario);
-  };
+  }; */
 
   const userEdit =(usuarioEditado)=>{
     const editUser = user.map(usuario => (usuario.rut === usuarioEditado.rut ? usuarioEditado : usuario))

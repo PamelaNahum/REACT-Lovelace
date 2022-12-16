@@ -9,7 +9,7 @@ const TablaUsuarios = ({ usuarios, deleteUser, setUsuarioEditado }) => {
       <table class="table">
         <thead>
           <tr>
-            <th>Rut</th>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Correo</th>
@@ -22,9 +22,9 @@ const TablaUsuarios = ({ usuarios, deleteUser, setUsuarioEditado }) => {
                             realizaremos lo siguiente => */}
           {usuarios.map((usuario) => (
             <tr>
-              <td>{usuario.rut}</td>
-              <td>{usuario.nombre}</td>
-              <td>{usuario.apellido}</td>
+              <td>{usuario.id}</td>
+              <td>{usuario.name}</td>
+              <td>{usuario.lastName}</td>
               <td>{usuario.correo}</td>
               <td>
                 <button
